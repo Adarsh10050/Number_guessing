@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class code_soft_task_1 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int minNumber = 1;
+        int maxNumber = 100;
+        int secretNumber = (int) (Math.random() * (maxNumber - minNumber + 1)) + minNumber;
+        int attempts = 0;
+        boolean hasGuessed = false;
+
+        System.out.println("Welcome to the Number Guessing Game!");
+        System.out.println("I have chosen a number between " + minNumber + " and " + maxNumber + ". Can you guess it?");
+
+        while (!hasGuessed) {
+            System.out.print("Enter your guess: ");
+            int guess = scanner.nextInt();
+            attempts++;
+
+            if (guess < secretNumber) {
+                System.out.println("Too low! Try a higher number.");
+            } else if (guess > secretNumber) {
+                System.out.println("Too high! Try a lower number.");
+            } else {
+                hasGuessed = true;
+            }
+        }
+
+        System.out.println("Congratulations! You've guessed the number " + secretNumber + " correctly in " + attempts + " attempts.");
+        scanner.close();
+    }
+}
